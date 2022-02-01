@@ -4,29 +4,30 @@ import reactDom from "react-dom";
 //Declaracion de funcion flecha
 const App=()=>{
     //Declaracion de constante
-    const course= "Half stack aplication development";
-    const part1= "Fundamentals of React";
-    const exercises1= 10;
-    const part2= "Using props to pass data";
-    const exercises2= 7;
-    const part3= "State of a component";
-    const exercises3= 14;
-        <div>
-            <h1>{course}</h1>
-            <p>{part1} {exercises1}</p>
-            <p>{part2} {exercises2}</p>
-            <p>{part3} {exercises3}</p>
-            <p>Number of exercises{exercises1 + exercises2 + exercises3}</p>
-        </div>
+    const courses={
+        name:"Half stack aplication development",
+        parts:[
+        { 
+            name:"Fundamentals of React",
+            exercises1: 10
+        },
+        {
+            name: "Using props to pass data",
+            exercises2: 7
+        },
+        { 
+            name:"State of a component",
+            exercises3: 14
+        }]}
 
     return(
-
+        
         <div>
-            <Header course={course}/>
-            <Content parte={part1} exercises={exercises1}/>
-            <Content parte={part2} exercises={exercises2}/>
-            <Content parte={part3} exercises={exercises3}/>
-            <Total total={exercises1 + exercises2 + exercises3}/>
+            <Header course={courses.name}/>
+            <Content parte={courses.parts[0].name} exercises={courses.parts[0].exercises1}/>
+            <Content parte={courses.parts[1].name} exercises={courses.parts[1].exercises2}/>
+            <Content parte={courses.parts[2].name} exercises={courses.parts[2].exercises3}/>
+            <Total total={courses.parts[0].exercises1 + courses.parts[1].exercises2 + courses.parts[2].exercises3}/>
         </div>
     )
 }
