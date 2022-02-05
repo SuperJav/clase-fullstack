@@ -1,55 +1,90 @@
 import React from "react";
 import reactDom from "react-dom";
+import Content from "./components/content";
+import Courses from "./components/courses";
+// import Header from "./components/header";
+// import Content from "./components/content";
+// import Part from "./components/part";
+// import Total from "./components/total";
+//import Courses from "./components/courses";
+import Total from "./components/total";
 
 //Declaracion de funcion flecha
 const App=()=>{
     //Declaracion de constante
-    const courses={
-        name:"Half stack aplication development",
-        parts:[
-        { 
-            name:"Fundamentals of React",
-            exercises1: 10
+    // const courses={
+    //     id:1,
+    //     name:"Half stack aplication development",
+    //     parts:[
+    //     { 
+    //         name:"Fundamentals of React",
+    //         exercises: 10
+    //     },
+    //     {
+    //         name: "Using props to pass data",
+    //         exercises: 7
+    //     },
+    //     { 
+    //         name:"State of a component",
+    //         exercises: 14
+    //     },
+    //     {
+    //         name: 'Redux',
+    //         exercises: 11,
+    //         id: 4,
+    //       },
+    //     ],}
+    const courses = [
+        {
+          name: 'Half Stack application development',
+          id: 1,
+          parts: [
+            {
+              name: 'Fundamentals of React',
+              exercises: 10,
+              id: 1,
+            },
+            {
+              name: 'Using props to pass data',
+              exercises: 7,
+              id: 2,
+            },
+            {
+              name: 'State of a component',
+              exercises: 14,
+              id: 3,
+            },
+            {
+              name: 'Redux',
+              exercises: 11,
+              id: 4,
+            },
+          ],
         },
         {
-            name: "Using props to pass data",
-            exercises2: 7
+          name: 'Node.js',
+          id: 2,
+          parts: [
+            {
+              name: 'Routing',
+              exercises: 3,
+              id: 1,
+            },
+            {
+              name: 'Middlewares',
+              exercises: 7,
+              id: 2,
+            },
+          ],
         },
-        { 
-            name:"State of a component",
-            exercises3: 14
-        }]}
-
+      ]
+       
     return(
-        
         <div>
-            <Header course={courses.name}/>
-            <Content parte={courses.parts[0].name} exercises={courses.parts[0].exercises1}/>
-            <Content parte={courses.parts[1].name} exercises={courses.parts[1].exercises2}/>
-            <Content parte={courses.parts[2].name} exercises={courses.parts[2].exercises3}/>
-            <Total total={courses.parts[0].exercises1 + courses.parts[1].exercises2 + courses.parts[2].exercises3}/>
+          <h1>Web development curriculum</h1>
+            <Courses courses={courses[0]}/>
+            <Courses courses={courses[1]}/>
         </div>
     )
 }
-
-//Declaracion del componente Header
-const Header=(props)=>{
-    return(
-        <h1>{props.course}</h1>
-    )
-}
-//Declaracion del componente Content
-const Content=(props)=>{
-    return(
-        <p>{props.parte} {props.exercises}</p>
-    )
-}
-//Declaracion del componente Total
-const Total=(props)=>{
-    return(
-        <p>Number of exercises {props.total}</p>
-    )
-}
-
-
 reactDom.render(<App/>,document.getElementById('root'))
