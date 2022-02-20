@@ -1,0 +1,22 @@
+
+.contenedor{
+    background-color: rgba(73, 121, 73, 0.555);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 5px 5px 2em ;
+    height: 20em;
+    margin: 10em;
+    border-radius: 10%;
+}
+.header{
+    align-items: flex-start;
+    align-self: flex-start;
+    position:absolute;
+}
+.lista{
+    align-items: flex-start;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+}

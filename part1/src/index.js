@@ -1,39 +1,16 @@
 import React from "react";
 import reactDom from "react-dom";
-import Content from "./components/content";
+//import Content from "./components/content";
 import Courses from "./components/courses";
 // import Header from "./components/header";
 // import Content from "./components/content";
 // import Part from "./components/part";
 // import Total from "./components/total";
 //import Courses from "./components/courses";
-import Total from "./components/total";
+//import Total from "./components/total";
 
 //Declaracion de funcion flecha
 const App=()=>{
-    //Declaracion de constante
-    // const courses={
-    //     id:1,
-    //     name:"Half stack aplication development",
-    //     parts:[
-    //     { 
-    //         name:"Fundamentals of React",
-    //         exercises: 10
-    //     },
-    //     {
-    //         name: "Using props to pass data",
-    //         exercises: 7
-    //     },
-    //     { 
-    //         name:"State of a component",
-    //         exercises: 14
-    //     },
-    //     {
-    //         name: 'Redux',
-    //         exercises: 11,
-    //         id: 4,
-    //       },
-    //     ],}
     const courses = [
         {
           name: 'Half Stack application development',
