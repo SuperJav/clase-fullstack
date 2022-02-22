@@ -1,33 +1,35 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import reactDom from "react-dom"
 import Buscador from "./Components/Buscador"
 import Form from "./Components/Form"
 import Usuarios from "./Components/Usuarios"
-import "./estilos.css"
+import axios from "axios"
+
 //Componente App
 const App=()=>{
     //Declaracion de estados 
-    const [ persons,setPersons ]=useState([{
-        content:"Super javi",
-        tel:"823-344-4333",
-        date:new Date().toISOString(),
-        id:0
-    }])
-    
+    const [ persons,setPersons ]=useState([])
     const [ newName,setNewName ] =useState([])
     const [ newTelefono,setNewTelefono] =useState([])
+    
+    useEffect(()=>{
+        axios.get("http://localhost:3001/persons")
+            .then(respuesta=>{
+            
+             setPersons(respuesta.data)
+})
+    },[])
     //funcion flecha que atra los evento del formulario padre fom
     const addForm=(event)=>{
         //desativa la regarga de la pagina 
         event.preventDefault()
         let nombreObject ={
-            content:newName,
-            tel:newTelefono,
-            date: new Date().toISOString(),
+            name:newName,
+            number:newTelefono,
             id: persons.length +1
         }
         //Condicional que busca un nombre en comun
-        persons.find(item => item.content === nombreObject.content)?
+        persons.find(item => item.name === nombreObject.name)?
             alert(`${newName} Existe en sus Contacto!!`):
             setPersons(persons.concat(nombreObject))
     }
@@ -38,20 +40,18 @@ const App=()=>{
          setNewName(event.target.value):
          setNewTelefono(event.target.value) 
       }
+      
     return (
         <div className="contenedor">
-            
             <div className="header">
                 <h2>Phonebook</h2>
                 <Buscador 
                     estado={persons}
                     className="entrada"/>
-                    
                 <div 
                     id="resultado">
                 </div>
             </div>
-
             <h3>Agregar nuevo Contacto</h3>
             <Form 
                 eventForm={addForm}

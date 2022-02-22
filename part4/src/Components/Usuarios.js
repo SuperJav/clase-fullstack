@@ -8,15 +8,10 @@ const Usuarios=(props)=>{
             <ul>
                 {persons.map(usuario=>
                  <li key={usuario.id}>
-                {`${usuario.content}
-                 Tel: ${usuario.tel}`}
+                     {`${usuario.name} Tel: ${usuario.number}`}
                  </li>)}
             </ul>
         </div>
     )
-
-
-
 }
-
 export default Usuarios
