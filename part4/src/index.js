@@ -51,7 +51,7 @@ const App=()=>{
                 <div 
                     id="resultado">
                 </div>
-            </div>  
+            </div>
             <h3>Agregar nuevo Contacto</h3>
             <Form 
                 eventForm={addForm}
