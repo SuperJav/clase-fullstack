@@ -31,6 +31,7 @@ const Buscador=(props)=>{
 
         return(
             <>
+            
                 <input 
                     type="text"
                     value={busqueda}
