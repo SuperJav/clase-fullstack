@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //Constante que almacena la direcion del aechivo servidor json
-const baseUrl='http://localhost:3001/notes'
+const baseUrl='/api/notes'
 
 //Metodo que devuelve todo los datos del servidor json
 const getAll=()=>{
